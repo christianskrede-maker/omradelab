@@ -1,1 +1,8 @@
-
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/p/betonmast/buskerud-vestfold/prosjekt/hotvet"
+    }
+  ]
+}
