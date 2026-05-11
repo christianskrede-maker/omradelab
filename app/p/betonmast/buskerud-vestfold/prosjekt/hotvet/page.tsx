@@ -26,9 +26,7 @@ export default function HotvetPage() {
       <section style={contentStyle}>
         <div style={cardStyle}>
           <div style={iconStyle}>⌂</div>
-
           <h2 style={cardTitle}>Om prosjektet</h2>
-
           <p style={cardText}>
             Hotvet er et nytt boligprosjekt i Drammen. Prosjektet vil bestå av
             moderne boliger med høy kvalitet, gode uteområder og et helhetlig
@@ -38,11 +36,7 @@ export default function HotvetPage() {
         </div>
 
         <div style={cardStyle}>
-          <img
-            src="/spg-logo.png"
-            alt="Scandinavian Property Group"
-            style={spgLogo}
-          />
+          <img src="/spg-logo.png" alt="Scandinavian Property Group" style={spgLogo} />
 
           <h2 style={cardTitle}>Interessert i bolig?</h2>
 
@@ -63,20 +57,46 @@ export default function HotvetPage() {
         <h2 style={formHeading}>Send melding til Betonmast</h2>
 
         <div style={formCard}>
-          <form style={formStyle}>
-            <input placeholder="Navn" style={inputStyle} />
-            <input placeholder="Telefonnummer" style={inputStyle} />
-            <input placeholder="E-post" style={inputStyle} />
+          <form
+            style={formStyle}
+            action="mailto:havard.henriksen@betonmast.no"
+            method="POST"
+            encType="text/plain"
+          >
+            <input placeholder="Navn" style={inputStyle} name="Navn" required />
+            <input placeholder="Adresse" style={inputStyle} name="Adresse" />
+
+            <input
+              placeholder="Telefonnummer"
+              style={inputStyle}
+              name="Telefon"
+              type="tel"
+              required
+            />
+
+            <input
+              placeholder="E-post"
+              style={inputStyle}
+              name="E-post"
+              type="email"
+            />
 
             <textarea
               placeholder="Skriv spørsmålet ditt her"
               rows={6}
               style={inputStyle}
+              name="Melding"
+              required
             />
 
             <button type="submit" style={submitButton}>
               Send melding
             </button>
+
+            <p style={helperText}>
+              Telefon er påkrevd. E-post er valgfritt. Meldingen sendes til
+              Betonmast Buskerud-Vestfold.
+            </p>
           </form>
         </div>
       </section>
@@ -98,7 +118,7 @@ const headerStyle = {
 };
 
 const betonmastLogo = {
-  height: "220px",
+  height: "140px",
   objectFit: "contain" as const,
   marginBottom: "22px",
 };
@@ -251,4 +271,10 @@ const submitButton = {
   fontSize: "18px",
   fontWeight: 800,
   cursor: "pointer",
+};
+
+const helperText = {
+  color: "#777",
+  fontSize: "14px",
+  marginTop: "4px",
 };
