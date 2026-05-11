@@ -1,223 +1,50 @@
 export default function HotvetPage() {
   return (
-    <main
-      style={{
-        fontFamily: "Arial, sans-serif",
-        backgroundColor: "#f5f5f5",
-        minHeight: "100vh",
-        color: "#111",
-      }}
-    >
-      <header
-        style={{
-          backgroundColor: "#111",
-          padding: "28px 40px",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: "1100px",
-            margin: "0 auto",
-            display: "flex",
-            alignItems: "center",
-            gap: "24px",
-          }}
-        >
-          <img
-            src="/betonmast-logo.png"
-            alt="Betonmast"
-            style={{
-              height: "52px",
-              objectFit: "contain",
-            }}
-          />
-
-          <div
-            style={{
-              color: "#fff",
-              fontSize: "18px",
-              fontWeight: 700,
-            }}
-          >
-            Buskerud-Vestfold
-          </div>
-        </div>
+    <main style={mainStyle}>
+      <header style={headerStyle}>
+        <img src="/betonmast-logo.png" alt="Betonmast" style={betonmastLogo} />
+        <div style={regionText}>Buskerud-Vestfold</div>
+        <div style={badge}>NABOINFORMASJON</div>
       </header>
 
-      <section
-        style={{
-          position: "relative",
-          height: "520px",
-          overflow: "hidden",
-        }}
-      >
-        <img
-          src="/hotvet.jpg"
-          alt="Hotvet"
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-          }}
-        />
+      <section style={heroStyle}>
+        <img src="/hotvet.jpg" alt="Hotvet" style={heroImage} />
+        <div style={heroOverlay} />
 
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.65))",
-          }}
-        />
-
-        <div
-          style={{
-            position: "absolute",
-            bottom: "60px",
-            left: "50%",
-            transform: "translateX(-50%)",
-            width: "100%",
-            maxWidth: "1100px",
-            padding: "0 40px",
-            color: "white",
-          }}
-        >
-          <div
-            style={{
-              display: "inline-block",
-              background: "#FFD500",
-              color: "#111",
-              fontWeight: 700,
-              padding: "8px 14px",
-              borderRadius: "999px",
-              marginBottom: "20px",
-              fontSize: "14px",
-            }}
-          >
-            Naboinformasjon
-          </div>
-
-          <h1
-            style={{
-              fontSize: "72px",
-              lineHeight: 1,
-              marginBottom: "20px",
-              maxWidth: "760px",
-            }}
-          >
-            Hotvet
-          </h1>
-
-          <p
-            style={{
-              fontSize: "22px",
-              lineHeight: 1.5,
-              maxWidth: "720px",
-              opacity: 0.95,
-            }}
-          >
-            Informasjon og kontakt for naboer og interessenter rundt
-            boligprosjektet Hotvet i Drammen.
+        <div style={heroContent}>
+          <h1 style={heroTitle}>Hotvet</h1>
+          <p style={heroText}>
+            Hotvet er et boligprosjekt i Drammen. Dette området er under
+            utvikling med fokus på gode bomiljøer og bærekraftige løsninger.
+          </p>
+          <p style={heroText}>
+            Her finner du informasjon og kontakt for naboer og interessenter.
           </p>
         </div>
       </section>
 
-      <section
-        style={{
-          maxWidth: "1100px",
-          margin: "0 auto",
-          padding: "80px 40px",
-        }}
-      >
-        <div
-          style={{
-            background: "white",
-            borderRadius: "28px",
-            padding: "50px",
-            marginBottom: "40px",
-            boxShadow: "0 10px 30px rgba(0,0,0,0.04)",
-          }}
-        >
-          <h2
-            style={{
-              fontSize: "42px",
-              marginBottom: "20px",
-            }}
-          >
-            Om prosjektet
-          </h2>
-
-          <p
-            style={{
-              fontSize: "20px",
-              lineHeight: 1.8,
-              color: "#444",
-              maxWidth: "850px",
-              marginBottom: "36px",
-            }}
-          >
-            Hotvet er et boligprosjekt i Drammen. Denne siden er laget for at
-            naboer og interessenter enkelt skal kunne finne informasjon,
-            kontakte Betonmast Buskerud-Vestfold og gå videre til
-            prosjektets salgsside.
+      <section style={contentStyle}>
+        <div style={cardStyle}>
+          <div style={iconStyle}>⌂</div>
+          <h2 style={cardTitle}>Om prosjektet</h2>
+          <p style={cardText}>
+            Hotvet er et nytt boligprosjekt i Drammen. Prosjektet vil bestå av
+            moderne boliger med høy kvalitet, gode uteområder og et helhetlig
+            fokus på bærekraft. Utbyggingen skjer med omtanke for nærmiljøet og
+            i tett dialog med naboer.
           </p>
-
-          <a
-            href="#kontakt"
-            style={{
-              display: "inline-block",
-              backgroundColor: "#111",
-              color: "#fff",
-              padding: "20px 34px",
-              borderRadius: "14px",
-              fontWeight: 700,
-              textDecoration: "none",
-              fontSize: "18px",
-            }}
-          >
-            Send melding til Betonmast
-          </a>
         </div>
 
-        <div
-          style={{
-            background: "#fff",
-            borderRadius: "28px",
-            padding: "60px 40px",
-            textAlign: "center",
-            marginBottom: "60px",
-            border: "1px solid #e5e5e5",
-          }}
-        >
+        <div style={cardStyle}>
           <img
             src="/spg-logo.png"
             alt="Scandinavian Property Group"
-            style={{
-              height: "90px",
-              maxWidth: "320px",
-              objectFit: "contain",
-              marginBottom: "30px",
-            }}
+            style={spgLogo}
           />
 
-          <h2
-            style={{
-              fontSize: "38px",
-              marginBottom: "18px",
-            }}
-          >
-            Interessert i bolig?
-          </h2>
+          <h2 style={cardTitle}>Interessert i bolig?</h2>
 
-          <p
-            style={{
-              fontSize: "19px",
-              color: "#555",
-              lineHeight: 1.7,
-              maxWidth: "680px",
-              margin: "0 auto 34px",
-            }}
-          >
+          <p style={cardText}>
             Se tilgjengelige boliger, priser og salgsinformasjon hos
             Scandinavian Property Group.
           </p>
@@ -225,74 +52,185 @@ export default function HotvetPage() {
           <a
             href="https://scandinavianpropertygroup.com/no/vare-prosjekter/hotvetalleen/til-salgs"
             target="_blank"
-            style={{
-              display: "inline-block",
-              background: "#FFD500",
-              color: "#111",
-              padding: "20px 38px",
-              borderRadius: "14px",
-              fontWeight: 700,
-              textDecoration: "none",
-              fontSize: "18px",
-            }}
+            style={yellowButton}
           >
-            Se boliger til salgs hos SPG
+            Se boliger til salgs hos SPG →
           </a>
         </div>
 
-        <section id="kontakt">
-          <h2
-            style={{
-              fontSize: "42px",
-              marginBottom: "30px",
-            }}
-          >
-            Send melding til Betonmast
-          </h2>
+        <h2 style={formHeading}>Send melding til Betonmast</h2>
 
-          <div
-            style={{
-              backgroundColor: "#fff",
-              padding: "45px",
-              borderRadius: "24px",
-            }}
-          >
-            <form
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "18px",
-              }}
-            >
-              <input placeholder="Navn" style={inputStyle} />
-              <input placeholder="Telefonnummer" style={inputStyle} />
-              <input placeholder="E-post" style={inputStyle} />
+        <div style={formCard}>
+          <form style={formStyle}>
+            <input placeholder="Navn" style={inputStyle} />
+            <input placeholder="Telefonnummer" style={inputStyle} />
+            <input placeholder="E-post" style={inputStyle} />
+            <textarea
+              placeholder="Skriv spørsmålet ditt her"
+              rows={6}
+              style={inputStyle}
+            />
 
-              <textarea
-                placeholder="Skriv spørsmålet ditt her"
-                rows={6}
-                style={inputStyle}
-              />
-
-              <button type="submit" style={submitButton}>
-                Send melding
-              </button>
-
-              <p
-                style={{
-                  color: "#777",
-                  fontSize: "14px",
-                }}
-              >
-                Neste steg er å koble skjemaet til automatisk e-postvarsling.
-              </p>
-            </form>
-          </div>
-        </section>
+            <button type="submit" style={submitButton}>
+              Send melding
+            </button>
+          </form>
+        </div>
       </section>
     </main>
   );
 }
+
+const mainStyle = {
+  fontFamily: "Arial, sans-serif",
+  backgroundColor: "#f5f5f5",
+  minHeight: "100vh",
+  color: "#111",
+};
+
+const headerStyle = {
+  backgroundColor: "#050505",
+  padding: "48px 40px 36px",
+  textAlign: "center" as const,
+};
+
+const betonmastLogo = {
+  height: "90px",
+  objectFit: "contain" as const,
+  marginBottom: "18px",
+};
+
+const regionText = {
+  color: "#fff",
+  fontSize: "28px",
+  fontWeight: 700,
+  marginBottom: "18px",
+};
+
+const badge = {
+  display: "inline-block",
+  backgroundColor: "#FFD500",
+  color: "#111",
+  fontWeight: 800,
+  padding: "10px 22px",
+  borderRadius: "999px",
+  fontSize: "16px",
+};
+
+const heroStyle = {
+  position: "relative" as const,
+  height: "520px",
+  overflow: "hidden",
+};
+
+const heroImage = {
+  width: "100%",
+  height: "100%",
+  objectFit: "cover" as const,
+};
+
+const heroOverlay = {
+  position: "absolute" as const,
+  inset: 0,
+  background: "rgba(0,0,0,0.45)",
+};
+
+const heroContent = {
+  position: "absolute" as const,
+  inset: 0,
+  display: "flex",
+  flexDirection: "column" as const,
+  alignItems: "center",
+  justifyContent: "center",
+  textAlign: "center" as const,
+  color: "#fff",
+  padding: "0 28px",
+};
+
+const heroTitle = {
+  fontSize: "86px",
+  lineHeight: 1,
+  marginBottom: "24px",
+  fontWeight: 800,
+};
+
+const heroText = {
+  fontSize: "24px",
+  lineHeight: 1.5,
+  maxWidth: "760px",
+  margin: "0 auto 14px",
+  fontWeight: 500,
+};
+
+const contentStyle = {
+  maxWidth: "1100px",
+  margin: "0 auto",
+  padding: "70px 40px 90px",
+};
+
+const cardStyle = {
+  backgroundColor: "#fff",
+  borderRadius: "28px",
+  padding: "58px 48px",
+  textAlign: "center" as const,
+  marginBottom: "32px",
+  boxShadow: "0 10px 30px rgba(0,0,0,0.04)",
+};
+
+const iconStyle = {
+  fontSize: "54px",
+  marginBottom: "18px",
+};
+
+const cardTitle = {
+  fontSize: "42px",
+  marginBottom: "22px",
+  fontWeight: 800,
+};
+
+const cardText = {
+  fontSize: "20px",
+  lineHeight: 1.8,
+  color: "#444",
+  maxWidth: "760px",
+  margin: "0 auto 34px",
+};
+
+const spgLogo = {
+  height: "95px",
+  maxWidth: "360px",
+  objectFit: "contain" as const,
+  marginBottom: "32px",
+};
+
+const yellowButton = {
+  display: "inline-block",
+  backgroundColor: "#FFD500",
+  color: "#111",
+  padding: "20px 38px",
+  borderRadius: "14px",
+  fontWeight: 800,
+  textDecoration: "none",
+  fontSize: "18px",
+};
+
+const formHeading = {
+  fontSize: "42px",
+  margin: "54px 0 26px",
+  fontWeight: 800,
+};
+
+const formCard = {
+  backgroundColor: "#fff",
+  borderRadius: "28px",
+  padding: "36px",
+};
+
+const formStyle = {
+  display: "flex",
+  flexDirection: "column" as const,
+  gap: "16px",
+};
 
 const inputStyle = {
   padding: "18px",
@@ -308,6 +246,6 @@ const submitButton = {
   padding: "20px",
   borderRadius: "10px",
   fontSize: "18px",
-  fontWeight: "bold",
+  fontWeight: 800,
   cursor: "pointer",
 };
