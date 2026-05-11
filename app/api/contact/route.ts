@@ -30,7 +30,7 @@ export async function POST(request: Request) {
     const { error } = await resend.emails.send({
       from: "onboarding@resend.dev",
 
-      to: ["havard.henriksen@betonmast.no"],
+      to: ["christianskrede@gmail.com"],
 
       subject: `Ny henvendelse fra Hotvet - ${navn}`,
 
