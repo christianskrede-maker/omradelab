@@ -26,7 +26,9 @@ export default function HotvetPage() {
       <section style={contentStyle}>
         <div style={cardStyle}>
           <div style={iconStyle}>⌂</div>
+
           <h2 style={cardTitle}>Om prosjektet</h2>
+
           <p style={cardText}>
             Hotvet er et nytt boligprosjekt i Drammen. Prosjektet vil bestå av
             moderne boliger med høy kvalitet, gode uteområder og et helhetlig
@@ -52,7 +54,7 @@ export default function HotvetPage() {
           <a
             href="https://scandinavianpropertygroup.com/no/vare-prosjekter/hotvetalleen/til-salgs"
             target="_blank"
-            style={yellowButton}
+            style={spgButton}
           >
             Se boliger til salgs hos SPG →
           </a>
@@ -65,6 +67,7 @@ export default function HotvetPage() {
             <input placeholder="Navn" style={inputStyle} />
             <input placeholder="Telefonnummer" style={inputStyle} />
             <input placeholder="E-post" style={inputStyle} />
+
             <textarea
               placeholder="Skriv spørsmålet ditt her"
               rows={6}
@@ -90,21 +93,21 @@ const mainStyle = {
 
 const headerStyle = {
   backgroundColor: "#050505",
-  padding: "48px 40px 36px",
+  padding: "56px 40px 42px",
   textAlign: "center" as const,
 };
 
 const betonmastLogo = {
-  height: "90px",
+  height: "140px",
   objectFit: "contain" as const,
-  marginBottom: "18px",
+  marginBottom: "22px",
 };
 
 const regionText = {
   color: "#fff",
-  fontSize: "28px",
+  fontSize: "34px",
   fontWeight: 700,
-  marginBottom: "18px",
+  marginBottom: "22px",
 };
 
 const badge = {
@@ -112,9 +115,9 @@ const badge = {
   backgroundColor: "#FFD500",
   color: "#111",
   fontWeight: 800,
-  padding: "10px 22px",
+  padding: "12px 26px",
   borderRadius: "999px",
-  fontSize: "16px",
+  fontSize: "17px",
 };
 
 const heroStyle = {
@@ -203,10 +206,10 @@ const spgLogo = {
   marginBottom: "32px",
 };
 
-const yellowButton = {
+const spgButton = {
   display: "inline-block",
-  backgroundColor: "#FFD500",
-  color: "#111",
+  backgroundColor: "#0B3A75",
+  color: "#fff",
   padding: "20px 38px",
   borderRadius: "14px",
   fontWeight: 800,
