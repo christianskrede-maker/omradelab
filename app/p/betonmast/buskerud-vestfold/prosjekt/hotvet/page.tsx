@@ -98,7 +98,7 @@ const headerStyle = {
 };
 
 const betonmastLogo = {
-  height: "140px",
+  height: "220px",
   objectFit: "contain" as const,
   marginBottom: "22px",
 };
