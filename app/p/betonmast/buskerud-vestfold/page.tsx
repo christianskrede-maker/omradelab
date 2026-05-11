@@ -1,14 +1,26 @@
 const prosjekter = [
   {
-    navn: "Drammen Hageby",
+    navn: "Hotvet",
     sted: "Drammen",
-    status: "Pågående byggearbeider",
-    link: "/p/betonmast/buskerud-vestfold/prosjekt/drammen-hageby",
+    status: "Boligprosjekt / nabodialog",
+    link: "/p/betonmast/buskerud-vestfold/prosjekt/hotvet",
   },
   {
-    navn: "Asker Terrasse",
-    sted: "Asker",
-    status: "Planlegging og medvirkning",
+    navn: "Kontorbygg for Lede",
+    sted: "Larvik",
+    status: "Pågående",
+    link: "#",
+  },
+  {
+    navn: "Vision",
+    sted: "Horten",
+    status: "Pågående",
+    link: "#",
+  },
+  {
+    navn: "Sjøparken i Stavern",
+    sted: "Stavern",
+    status: "Pågående",
     link: "#",
   },
 ];
