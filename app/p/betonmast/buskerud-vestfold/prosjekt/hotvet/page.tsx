@@ -8,7 +8,42 @@ export default function HotvetPage() {
         color: "#111",
       }}
     >
-      {/* HERO IMAGE */}
+      <header
+        style={{
+          backgroundColor: "#111",
+          padding: "28px 40px",
+        }}
+      >
+        <div
+          style={{
+            maxWidth: "1100px",
+            margin: "0 auto",
+            display: "flex",
+            alignItems: "center",
+            gap: "24px",
+          }}
+        >
+          <img
+            src="/betonmast-logo.png"
+            alt="Betonmast"
+            style={{
+              height: "52px",
+              objectFit: "contain",
+            }}
+          />
+
+          <div
+            style={{
+              color: "#fff",
+              fontSize: "18px",
+              fontWeight: 700,
+            }}
+          >
+            Buskerud-Vestfold
+          </div>
+        </div>
+      </header>
+
       <section
         style={{
           position: "relative",
@@ -31,7 +66,7 @@ export default function HotvetPage() {
             position: "absolute",
             inset: 0,
             background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.65))",
+              "linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.65))",
           }}
         />
 
@@ -42,7 +77,7 @@ export default function HotvetPage() {
             left: "50%",
             transform: "translateX(-50%)",
             width: "100%",
-            maxWidth: "1200px",
+            maxWidth: "1100px",
             padding: "0 40px",
             color: "white",
           }}
@@ -59,7 +94,7 @@ export default function HotvetPage() {
               fontSize: "14px",
             }}
           >
-            Betonmast Buskerud-Vestfold
+            Naboinformasjon
           </div>
 
           <h1
@@ -67,7 +102,7 @@ export default function HotvetPage() {
               fontSize: "72px",
               lineHeight: 1,
               marginBottom: "20px",
-              maxWidth: "700px",
+              maxWidth: "760px",
             }}
           >
             Hotvet
@@ -77,16 +112,16 @@ export default function HotvetPage() {
             style={{
               fontSize: "22px",
               lineHeight: 1.5,
-              maxWidth: "700px",
+              maxWidth: "720px",
               opacity: 0.95,
             }}
           >
-            Informasjon og nabodialog for boligprosjektet Hotvet i Drammen.
+            Informasjon og kontakt for naboer og interessenter rundt
+            boligprosjektet Hotvet i Drammen.
           </p>
         </div>
       </section>
 
-      {/* CONTENT */}
       <section
         style={{
           maxWidth: "1100px",
@@ -94,23 +129,6 @@ export default function HotvetPage() {
           padding: "80px 40px",
         }}
       >
-        {/* LOGO */}
-        <div
-          style={{
-            marginBottom: "50px",
-          }}
-        >
-          <img
-            src="/betonmast-logo.png"
-            alt="Betonmast"
-            style={{
-              height: "70px",
-              objectFit: "contain",
-            }}
-          />
-        </div>
-
-        {/* INFO CARD */}
         <div
           style={{
             background: "white",
@@ -135,99 +153,73 @@ export default function HotvetPage() {
               lineHeight: 1.8,
               color: "#444",
               maxWidth: "850px",
+              marginBottom: "36px",
             }}
           >
-            Hotvet er et nytt boligprosjekt i Drammen utviklet av
-            Scandinavian Property Group i samarbeid med Betonmast.
-            OmrådeLab brukes som kanal for prosjektinformasjon,
-            varslinger og dialog med nærmiljøet.
+            Hotvet er et boligprosjekt i Drammen. Denne siden er laget for at
+            naboer og interessenter enkelt skal kunne finne informasjon,
+            kontakte Betonmast Buskerud-Vestfold og gå videre til
+            prosjektets salgsside.
           </p>
+
+          <a
+            href="#kontakt"
+            style={{
+              display: "inline-block",
+              backgroundColor: "#111",
+              color: "#fff",
+              padding: "20px 34px",
+              borderRadius: "14px",
+              fontWeight: 700,
+              textDecoration: "none",
+              fontSize: "18px",
+            }}
+          >
+            Send melding til Betonmast
+          </a>
         </div>
 
-        {/* STATUS */}
         <div
           style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))",
-            gap: "24px",
-            marginBottom: "60px",
-          }}
-        >
-          {[
-            ["Status", "Planlegging"],
-            ["Lokasjon", "Drammen"],
-            ["Type", "Boligprosjekt"],
-          ].map(([title, value]) => (
-            <div
-              key={title}
-              style={{
-                background: "white",
-                borderRadius: "24px",
-                padding: "32px",
-              }}
-            >
-              <div
-                style={{
-                  color: "#777",
-                  marginBottom: "10px",
-                  fontSize: "15px",
-                }}
-              >
-                {title}
-              </div>
-
-              <div
-                style={{
-                  fontSize: "28px",
-                  fontWeight: 700,
-                }}
-              >
-                {value}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* CTA */}
-        <div
-          style={{
-            textAlign: "center",
-            background: "#111",
-            borderRadius: "32px",
+            background: "#fff",
+            borderRadius: "28px",
             padding: "60px 40px",
-            color: "white",
+            textAlign: "center",
+            marginBottom: "60px",
+            border: "1px solid #e5e5e5",
           }}
         >
           <img
             src="/spg-logo.png"
-            alt="SPG"
+            alt="Scandinavian Property Group"
             style={{
-              height: "40px",
-              marginBottom: "30px",
+              height: "90px",
+              maxWidth: "320px",
               objectFit: "contain",
+              marginBottom: "30px",
             }}
           />
 
           <h2
             style={{
-              fontSize: "44px",
-              marginBottom: "20px",
+              fontSize: "38px",
+              marginBottom: "18px",
             }}
           >
-            Se boliger til salgs
+            Interessert i bolig?
           </h2>
 
           <p
             style={{
-              fontSize: "20px",
+              fontSize: "19px",
+              color: "#555",
               lineHeight: 1.7,
-              maxWidth: "700px",
-              margin: "0 auto 40px",
-              color: "rgba(255,255,255,0.8)",
+              maxWidth: "680px",
+              margin: "0 auto 34px",
             }}
           >
-            Besøk prosjektets offisielle salgsside hos Scandinavian
-            Property Group.
+            Se tilgjengelige boliger, priser og salgsinformasjon hos
+            Scandinavian Property Group.
           </p>
 
           <a
@@ -237,17 +229,85 @@ export default function HotvetPage() {
               display: "inline-block",
               background: "#FFD500",
               color: "#111",
-              padding: "18px 36px",
-              borderRadius: "16px",
+              padding: "20px 38px",
+              borderRadius: "14px",
               fontWeight: 700,
               textDecoration: "none",
               fontSize: "18px",
             }}
           >
-            Gå til salgssiden
+            Se boliger til salgs hos SPG
           </a>
         </div>
+
+        <section id="kontakt">
+          <h2
+            style={{
+              fontSize: "42px",
+              marginBottom: "30px",
+            }}
+          >
+            Send melding til Betonmast
+          </h2>
+
+          <div
+            style={{
+              backgroundColor: "#fff",
+              padding: "45px",
+              borderRadius: "24px",
+            }}
+          >
+            <form
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "18px",
+              }}
+            >
+              <input placeholder="Navn" style={inputStyle} />
+              <input placeholder="Telefonnummer" style={inputStyle} />
+              <input placeholder="E-post" style={inputStyle} />
+
+              <textarea
+                placeholder="Skriv spørsmålet ditt her"
+                rows={6}
+                style={inputStyle}
+              />
+
+              <button type="submit" style={submitButton}>
+                Send melding
+              </button>
+
+              <p
+                style={{
+                  color: "#777",
+                  fontSize: "14px",
+                }}
+              >
+                Neste steg er å koble skjemaet til automatisk e-postvarsling.
+              </p>
+            </form>
+          </div>
+        </section>
       </section>
     </main>
   );
 }
+
+const inputStyle = {
+  padding: "18px",
+  borderRadius: "10px",
+  border: "1px solid #ccc",
+  fontSize: "17px",
+};
+
+const submitButton = {
+  backgroundColor: "#111",
+  color: "#fff",
+  border: "none",
+  padding: "20px",
+  borderRadius: "10px",
+  fontSize: "18px",
+  fontWeight: "bold",
+  cursor: "pointer",
+};
