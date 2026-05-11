@@ -34,7 +34,6 @@ export async function POST(request: Request) {
 
       subject: `Ny henvendelse fra Hotvet - ${navn}`,
 
-      replyTo: epost || undefined,
 
       text: `
 Ny henvendelse fra Hotvet
