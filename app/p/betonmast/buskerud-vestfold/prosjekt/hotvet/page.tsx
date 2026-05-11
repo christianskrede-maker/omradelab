@@ -1,33 +1,89 @@
+"use client";
+
+import { useState } from "react";
+
 export default function HotvetPage() {
+  const [navn, setNavn] = useState("");
+  const [adresse, setAdresse] = useState("");
+  const [telefon, setTelefon] = useState("");
+  const [epost, setEpost] = useState("");
+  const [melding, setMelding] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!telefon && !epost) {
+      setStatus("Legg inn telefonnummer eller e-post.");
+      return;
+    }
+
+    setLoading(true);
+    setStatus("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          navn,
+          adresse,
+          telefon,
+          epost,
+          melding,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setStatus(data.error || "Noe gikk galt. Prøv igjen.");
+        return;
+      }
+
+      setStatus("Takk! Meldingen er sendt.");
+      setNavn("");
+      setAdresse("");
+      setTelefon("");
+      setEpost("");
+      setMelding("");
+    } catch {
+      setStatus("Kunne ikke sende meldingen. Prøv igjen.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <main style={mainStyle}>
-      <header style={headerStyle}>
-        <img src="/betonmast-logo.png" alt="Betonmast" style={betonmastLogo} />
-        <div style={regionText}>Buskerud-Vestfold</div>
-        <div style={badge}>NABOINFORMASJON</div>
+    <main className="page">
+      <header className="top">
+        <img src="/betonmast-logo.png" alt="Betonmast" className="betonmastLogo" />
+        <div className="region">Buskerud-Vestfold</div>
+        <div className="badge">NABOINFORMASJON</div>
       </header>
 
-      <section style={heroStyle}>
-        <img src="/hotvet.jpg" alt="Hotvet" style={heroImage} />
-        <div style={heroOverlay} />
+      <section className="hero">
+        <img src="/hotvet.jpg" alt="Hotvet" className="heroImage" />
+        <div className="overlay" />
 
-        <div style={heroContent}>
-          <h1 style={heroTitle}>Hotvet</h1>
-          <p style={heroText}>
+        <div className="heroContent">
+          <h1>Hotvet</h1>
+          <p>
             Hotvet er et boligprosjekt i Drammen. Dette området er under
             utvikling med fokus på gode bomiljøer og bærekraftige løsninger.
           </p>
-          <p style={heroText}>
-            Her finner du informasjon og kontakt for naboer og interessenter.
-          </p>
+          <p>Her finner du informasjon og kontakt for naboer og interessenter.</p>
         </div>
       </section>
 
-      <section style={contentStyle}>
-        <div style={cardStyle}>
-          <div style={iconStyle}>⌂</div>
-          <h2 style={cardTitle}>Om prosjektet</h2>
-          <p style={cardText}>
+      <section className="content">
+        <div className="card">
+          <div className="icon">⌂</div>
+          <h2>Om prosjektet</h2>
+          <p>
             Hotvet er et nytt boligprosjekt i Drammen. Prosjektet vil bestå av
             moderne boliger med høy kvalitet, gode uteområder og et helhetlig
             fokus på bærekraft. Utbyggingen skjer med omtanke for nærmiljøet og
@@ -35,12 +91,12 @@ export default function HotvetPage() {
           </p>
         </div>
 
-        <div style={cardStyle}>
-          <img src="/spg-logo.png" alt="Scandinavian Property Group" style={spgLogo} />
+        <div className="card">
+          <img src="/spg-logo.png" alt="Scandinavian Property Group" className="spgLogo" />
 
-          <h2 style={cardTitle}>Interessert i bolig?</h2>
+          <h2>Interessert i bolig?</h2>
 
-          <p style={cardText}>
+          <p>
             Se tilgjengelige boliger, priser og salgsinformasjon hos
             Scandinavian Property Group.
           </p>
@@ -48,233 +104,308 @@ export default function HotvetPage() {
           <a
             href="https://scandinavianpropertygroup.com/no/vare-prosjekter/hotvetalleen/til-salgs"
             target="_blank"
-            style={spgButton}
+            className="spgButton"
           >
             Se boliger til salgs hos SPG →
           </a>
         </div>
 
-        <h2 style={formHeading}>Send melding til Betonmast</h2>
+        <h2 className="formHeading">Send melding til Betonmast</h2>
 
-        <div style={formCard}>
-          <form
-            style={formStyle}
-            action="mailto:havard.henriksen@betonmast.no"
-            method="POST"
-            encType="text/plain"
-          >
-            <input placeholder="Navn" style={inputStyle} name="Navn" required />
-            <input placeholder="Adresse" style={inputStyle} name="Adresse" />
-
+        <div className="formCard">
+          <form onSubmit={handleSubmit} className="form">
             <input
-              placeholder="Telefonnummer"
-              style={inputStyle}
-              name="Telefon"
-              type="tel"
+              placeholder="Navn"
+              value={navn}
+              onChange={(e) => setNavn(e.target.value)}
               required
             />
 
             <input
+              placeholder="Adresse"
+              value={adresse}
+              onChange={(e) => setAdresse(e.target.value)}
+            />
+
+            <input
+              placeholder="Telefonnummer"
+              type="tel"
+              value={telefon}
+              onChange={(e) => setTelefon(e.target.value)}
+            />
+
+            <input
               placeholder="E-post"
-              style={inputStyle}
-              name="E-post"
               type="email"
+              value={epost}
+              onChange={(e) => setEpost(e.target.value)}
             />
 
             <textarea
               placeholder="Skriv spørsmålet ditt her"
               rows={6}
-              style={inputStyle}
-              name="Melding"
+              value={melding}
+              onChange={(e) => setMelding(e.target.value)}
               required
             />
 
-            <button type="submit" style={submitButton}>
-              Send melding
+            <button type="submit" disabled={loading}>
+              {loading ? "Sender..." : "Send melding"}
             </button>
 
-            <p style={helperText}>
-              Telefon er påkrevd. E-post er valgfritt. Meldingen sendes til
-              Betonmast Buskerud-Vestfold.
-            </p>
+            {status && <p className="status">{status}</p>}
           </form>
         </div>
       </section>
+
+      <style jsx>{`
+        .page {
+          font-family: Arial, sans-serif;
+          background: #f5f5f5;
+          min-height: 100vh;
+          color: #111;
+        }
+
+        .top {
+          background: #050505;
+          padding: 56px 24px 42px;
+          text-align: center;
+        }
+
+        .betonmastLogo {
+          height: 180px;
+          max-width: 92vw;
+          object-fit: contain;
+          margin-bottom: 18px;
+        }
+
+        .region {
+          color: white;
+          font-size: 34px;
+          font-weight: 800;
+          margin-bottom: 22px;
+        }
+
+        .badge {
+          display: inline-block;
+          background: #ffd500;
+          color: #111;
+          font-weight: 900;
+          padding: 12px 26px;
+          border-radius: 999px;
+          font-size: 17px;
+        }
+
+        .hero {
+          position: relative;
+          height: 520px;
+          overflow: hidden;
+        }
+
+        .heroImage {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .overlay {
+          position: absolute;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.45);
+        }
+
+        .heroContent {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          color: white;
+          padding: 0 28px;
+        }
+
+        .heroContent h1 {
+          font-size: 86px;
+          line-height: 1;
+          margin: 0 0 24px;
+          font-weight: 900;
+        }
+
+        .heroContent p {
+          font-size: 24px;
+          line-height: 1.5;
+          max-width: 760px;
+          margin: 0 auto 14px;
+          font-weight: 500;
+        }
+
+        .content {
+          max-width: 1100px;
+          margin: 0 auto;
+          padding: 70px 40px 90px;
+        }
+
+        .card {
+          background: white;
+          border-radius: 28px;
+          padding: 58px 48px;
+          text-align: center;
+          margin-bottom: 32px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        .icon {
+          font-size: 54px;
+          margin-bottom: 18px;
+        }
+
+        .card h2,
+        .formHeading {
+          font-size: 42px;
+          margin: 0 0 22px;
+          font-weight: 900;
+        }
+
+        .card p {
+          font-size: 20px;
+          line-height: 1.8;
+          color: #444;
+          max-width: 760px;
+          margin: 0 auto 34px;
+        }
+
+        .spgLogo {
+          height: 95px;
+          max-width: 360px;
+          object-fit: contain;
+          margin-bottom: 32px;
+        }
+
+        .spgButton {
+          display: inline-block;
+          background: #0b3a75;
+          color: white;
+          padding: 20px 38px;
+          border-radius: 14px;
+          font-weight: 900;
+          text-decoration: none;
+          font-size: 18px;
+        }
+
+        .formHeading {
+          margin-top: 54px;
+          margin-bottom: 26px;
+        }
+
+        .formCard {
+          background: white;
+          border-radius: 28px;
+          padding: 36px;
+        }
+
+        .form {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+
+        input,
+        textarea {
+          padding: 18px;
+          border-radius: 10px;
+          border: 1px solid #ccc;
+          font-size: 17px;
+          font-family: Arial, sans-serif;
+        }
+
+        button {
+          background: #111;
+          color: white;
+          border: none;
+          padding: 20px;
+          border-radius: 10px;
+          font-size: 18px;
+          font-weight: 900;
+          cursor: pointer;
+        }
+
+        button:disabled {
+          opacity: 0.7;
+          cursor: not-allowed;
+        }
+
+        .status {
+          font-size: 16px;
+          font-weight: 700;
+          margin: 6px 0 0;
+        }
+
+        @media (max-width: 700px) {
+          .top {
+            padding: 38px 20px 32px;
+          }
+
+          .betonmastLogo {
+            height: 105px;
+          }
+
+          .region {
+            font-size: 24px;
+          }
+
+          .badge {
+            font-size: 14px;
+            padding: 10px 18px;
+          }
+
+          .hero {
+            height: 470px;
+          }
+
+          .heroContent h1 {
+            font-size: 58px;
+          }
+
+          .heroContent p {
+            font-size: 18px;
+          }
+
+          .content {
+            padding: 40px 18px 70px;
+          }
+
+          .card {
+            padding: 38px 24px;
+            border-radius: 24px;
+          }
+
+          .card h2,
+          .formHeading {
+            font-size: 32px;
+          }
+
+          .card p {
+            font-size: 17px;
+          }
+
+          .spgLogo {
+            height: 70px;
+            max-width: 260px;
+          }
+
+          .spgButton {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 18px 20px;
+          }
+
+          .formCard {
+            padding: 24px;
+          }
+        }
+      `}</style>
     </main>
   );
 }
-
-const mainStyle = {
-  fontFamily: "Arial, sans-serif",
-  backgroundColor: "#f5f5f5",
-  minHeight: "100vh",
-  color: "#111",
-};
-
-const headerStyle = {
-  backgroundColor: "#050505",
-  padding: "56px 40px 42px",
-  textAlign: "center" as const,
-};
-
-const betonmastLogo = {
-  height: "140px",
-  objectFit: "contain" as const,
-  marginBottom: "22px",
-};
-
-const regionText = {
-  color: "#fff",
-  fontSize: "34px",
-  fontWeight: 700,
-  marginBottom: "22px",
-};
-
-const badge = {
-  display: "inline-block",
-  backgroundColor: "#FFD500",
-  color: "#111",
-  fontWeight: 800,
-  padding: "12px 26px",
-  borderRadius: "999px",
-  fontSize: "17px",
-};
-
-const heroStyle = {
-  position: "relative" as const,
-  height: "520px",
-  overflow: "hidden",
-};
-
-const heroImage = {
-  width: "100%",
-  height: "100%",
-  objectFit: "cover" as const,
-};
-
-const heroOverlay = {
-  position: "absolute" as const,
-  inset: 0,
-  background: "rgba(0,0,0,0.45)",
-};
-
-const heroContent = {
-  position: "absolute" as const,
-  inset: 0,
-  display: "flex",
-  flexDirection: "column" as const,
-  alignItems: "center",
-  justifyContent: "center",
-  textAlign: "center" as const,
-  color: "#fff",
-  padding: "0 28px",
-};
-
-const heroTitle = {
-  fontSize: "86px",
-  lineHeight: 1,
-  marginBottom: "24px",
-  fontWeight: 800,
-};
-
-const heroText = {
-  fontSize: "24px",
-  lineHeight: 1.5,
-  maxWidth: "760px",
-  margin: "0 auto 14px",
-  fontWeight: 500,
-};
-
-const contentStyle = {
-  maxWidth: "1100px",
-  margin: "0 auto",
-  padding: "70px 40px 90px",
-};
-
-const cardStyle = {
-  backgroundColor: "#fff",
-  borderRadius: "28px",
-  padding: "58px 48px",
-  textAlign: "center" as const,
-  marginBottom: "32px",
-  boxShadow: "0 10px 30px rgba(0,0,0,0.04)",
-};
-
-const iconStyle = {
-  fontSize: "54px",
-  marginBottom: "18px",
-};
-
-const cardTitle = {
-  fontSize: "42px",
-  marginBottom: "22px",
-  fontWeight: 800,
-};
-
-const cardText = {
-  fontSize: "20px",
-  lineHeight: 1.8,
-  color: "#444",
-  maxWidth: "760px",
-  margin: "0 auto 34px",
-};
-
-const spgLogo = {
-  height: "95px",
-  maxWidth: "360px",
-  objectFit: "contain" as const,
-  marginBottom: "32px",
-};
-
-const spgButton = {
-  display: "inline-block",
-  backgroundColor: "#0B3A75",
-  color: "#fff",
-  padding: "20px 38px",
-  borderRadius: "14px",
-  fontWeight: 800,
-  textDecoration: "none",
-  fontSize: "18px",
-};
-
-const formHeading = {
-  fontSize: "42px",
-  margin: "54px 0 26px",
-  fontWeight: 800,
-};
-
-const formCard = {
-  backgroundColor: "#fff",
-  borderRadius: "28px",
-  padding: "36px",
-};
-
-const formStyle = {
-  display: "flex",
-  flexDirection: "column" as const,
-  gap: "16px",
-};
-
-const inputStyle = {
-  padding: "18px",
-  borderRadius: "10px",
-  border: "1px solid #ccc",
-  fontSize: "17px",
-};
-
-const submitButton = {
-  backgroundColor: "#111",
-  color: "#fff",
-  border: "none",
-  padding: "20px",
-  borderRadius: "10px",
-  fontSize: "18px",
-  fontWeight: 800,
-  cursor: "pointer",
-};
-
-const helperText = {
-  color: "#777",
-  fontSize: "14px",
-  marginTop: "4px",
-};
