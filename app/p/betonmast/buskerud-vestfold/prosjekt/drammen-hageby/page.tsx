@@ -1,4 +1,4 @@
-export default function ProsjektPage() {
+export default function HotvetPage() {
   return (
     <main
       style={{
@@ -8,261 +8,244 @@ export default function ProsjektPage() {
         color: "#111",
       }}
     >
+      {/* HERO IMAGE */}
+      <section
+        style={{
+          position: "relative",
+          height: "520px",
+          overflow: "hidden",
+        }}
+      >
+        <img
+          src="/hotvet.jpg"
+          alt="Hotvet"
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+          }}
+        />
+
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.65))",
+          }}
+        />
+
+        <div
+          style={{
+            position: "absolute",
+            bottom: "60px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "100%",
+            maxWidth: "1200px",
+            padding: "0 40px",
+            color: "white",
+          }}
+        >
+          <div
+            style={{
+              display: "inline-block",
+              background: "#FFD500",
+              color: "#111",
+              fontWeight: 700,
+              padding: "8px 14px",
+              borderRadius: "999px",
+              marginBottom: "20px",
+              fontSize: "14px",
+            }}
+          >
+            Betonmast Buskerud-Vestfold
+          </div>
+
+          <h1
+            style={{
+              fontSize: "72px",
+              lineHeight: 1,
+              marginBottom: "20px",
+              maxWidth: "700px",
+            }}
+          >
+            Hotvet
+          </h1>
+
+          <p
+            style={{
+              fontSize: "22px",
+              lineHeight: 1.5,
+              maxWidth: "700px",
+              opacity: 0.95,
+            }}
+          >
+            Informasjon og nabodialog for boligprosjektet Hotvet i Drammen.
+          </p>
+        </div>
+      </section>
+
+      {/* CONTENT */}
       <section
         style={{
           maxWidth: "1100px",
           margin: "0 auto",
-          padding: "100px 40px 60px",
+          padding: "80px 40px",
         }}
       >
-        <p
+        {/* LOGO */}
+        <div
           style={{
-            color: "#666",
-            marginBottom: "20px",
-          }}
-        >
-          OmrådeLab / Betonmast / Drammen Hageby
-        </p>
-
-        <h1
-          style={{
-            fontSize: "72px",
-            lineHeight: "1",
-            marginBottom: "30px",
-            maxWidth: "900px",
-          }}
-        >
-          Drammen Hageby
-        </h1>
-
-        <p
-          style={{
-            fontSize: "24px",
-            lineHeight: "1.6",
-            maxWidth: "700px",
-            color: "#444",
             marginBottom: "50px",
           }}
         >
-          Informasjon og dialog for naboer og interessenter
-          rundt prosjektet Drammen Hageby.
-        </p>
-
-        <div
-          style={{
-            display: "flex",
-            gap: "20px",
-            flexWrap: "wrap",
-            marginBottom: "80px",
-          }}
-        >
-          <a
-            href="#kontakt"
+          <img
+            src="/betonmast-logo.png"
+            alt="Betonmast"
             style={{
-              backgroundColor: "#111",
-              color: "#fff",
-              padding: "18px 28px",
-              textDecoration: "none",
-              borderRadius: "10px",
-              fontWeight: "bold",
+              height: "70px",
+              objectFit: "contain",
             }}
-          >
-            Kontakt prosjektet
-          </a>
-
-          <a
-            href="#status"
-            style={{
-              border: "1px solid #ccc",
-              color: "#111",
-              padding: "18px 28px",
-              textDecoration: "none",
-              borderRadius: "10px",
-              fontWeight: "bold",
-            }}
-          >
-            Se prosjektstatus
-          </a>
+          />
         </div>
-      </section>
 
-      <section
-        style={{
-          backgroundColor: "#fff",
-          padding: "80px 40px",
-        }}
-      >
+        {/* INFO CARD */}
         <div
           style={{
-            maxWidth: "1100px",
-            margin: "0 auto",
+            background: "white",
+            borderRadius: "28px",
+            padding: "50px",
+            marginBottom: "40px",
+            boxShadow: "0 10px 30px rgba(0,0,0,0.04)",
           }}
         >
           <h2
             style={{
               fontSize: "42px",
-              marginBottom: "50px",
+              marginBottom: "20px",
             }}
           >
-            Hurtigvalg
+            Om prosjektet
           </h2>
 
-          <div
+          <p
             style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-              gap: "25px",
+              fontSize: "20px",
+              lineHeight: 1.8,
+              color: "#444",
+              maxWidth: "850px",
             }}
           >
-            {[
-              "Stille spørsmål",
-              "Melde problem",
-              "Kjøpe bolig",
-              "Motta varslinger",
-            ].map((item) => (
-              <div
-                key={item}
-                style={{
-                  backgroundColor: "#f5f5f5",
-                  padding: "35px",
-                  borderRadius: "20px",
-                  fontSize: "22px",
-                  fontWeight: "bold",
-                }}
-              >
-                {item}
-              </div>
-            ))}
-          </div>
+            Hotvet er et nytt boligprosjekt i Drammen utviklet av
+            Scandinavian Property Group i samarbeid med Betonmast.
+            OmrådeLab brukes som kanal for prosjektinformasjon,
+            varslinger og dialog med nærmiljøet.
+          </p>
         </div>
-      </section>
 
-      <section
-        id="status"
-        style={{
-          padding: "80px 40px",
-        }}
-      >
+        {/* STATUS */}
         <div
           style={{
-            maxWidth: "1100px",
-            margin: "0 auto",
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))",
+            gap: "24px",
+            marginBottom: "60px",
           }}
         >
-          <h2
-            style={{
-              fontSize: "42px",
-              marginBottom: "40px",
-            }}
-          >
-            Prosjektstatus
-          </h2>
-
-          <div
-            style={{
-              backgroundColor: "#fff",
-              padding: "40px",
-              borderRadius: "24px",
-            }}
-          >
-            <p>
-              <strong>Status:</strong> Pågående grunnarbeider
-            </p>
-
-            <p>
-              <strong>Arbeidstid:</strong> 07:00–19:00
-            </p>
-
-            <p>
-              <strong>Forventet ferdigstillelse:</strong> Q4 2026
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="kontakt"
-        style={{
-          padding: "0 40px 120px",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: "1100px",
-            margin: "0 auto",
-          }}
-        >
-          <h2
-            style={{
-              fontSize: "42px",
-              marginBottom: "40px",
-            }}
-          >
-            Kontakt prosjektet
-          </h2>
-
-          <div
-            style={{
-              backgroundColor: "#fff",
-              padding: "50px",
-              borderRadius: "24px",
-            }}
-          >
-            <form
+          {[
+            ["Status", "Planlegging"],
+            ["Lokasjon", "Drammen"],
+            ["Type", "Boligprosjekt"],
+          ].map(([title, value]) => (
+            <div
+              key={title}
               style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "20px",
+                background: "white",
+                borderRadius: "24px",
+                padding: "32px",
               }}
             >
-              <input
-                placeholder="Navn"
+              <div
                 style={{
-                  padding: "18px",
-                  borderRadius: "10px",
-                  border: "1px solid #ccc",
-                  fontSize: "18px",
-                }}
-              />
-
-              <input
-                placeholder="Telefonnummer"
-                style={{
-                  padding: "18px",
-                  borderRadius: "10px",
-                  border: "1px solid #ccc",
-                  fontSize: "18px",
-                }}
-              />
-
-              <textarea
-                placeholder="Hvordan kan vi hjelpe deg?"
-                rows={6}
-                style={{
-                  padding: "18px",
-                  borderRadius: "10px",
-                  border: "1px solid #ccc",
-                  fontSize: "18px",
-                }}
-              />
-
-              <button
-                type="submit"
-                style={{
-                  backgroundColor: "#111",
-                  color: "#fff",
-                  border: "none",
-                  padding: "20px",
-                  borderRadius: "10px",
-                  fontSize: "18px",
-                  fontWeight: "bold",
-                  cursor: "pointer",
+                  color: "#777",
+                  marginBottom: "10px",
+                  fontSize: "15px",
                 }}
               >
-                Send melding
-              </button>
-            </form>
-          </div>
+                {title}
+              </div>
+
+              <div
+                style={{
+                  fontSize: "28px",
+                  fontWeight: 700,
+                }}
+              >
+                {value}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div
+          style={{
+            textAlign: "center",
+            background: "#111",
+            borderRadius: "32px",
+            padding: "60px 40px",
+            color: "white",
+          }}
+        >
+          <img
+            src="/spg-logo.png"
+            alt="SPG"
+            style={{
+              height: "40px",
+              marginBottom: "30px",
+              objectFit: "contain",
+            }}
+          />
+
+          <h2
+            style={{
+              fontSize: "44px",
+              marginBottom: "20px",
+            }}
+          >
+            Se boliger til salgs
+          </h2>
+
+          <p
+            style={{
+              fontSize: "20px",
+              lineHeight: 1.7,
+              maxWidth: "700px",
+              margin: "0 auto 40px",
+              color: "rgba(255,255,255,0.8)",
+            }}
+          >
+            Besøk prosjektets offisielle salgsside hos Scandinavian
+            Property Group.
+          </p>
+
+          <a
+            href="https://scandinavianpropertygroup.com/no/vare-prosjekter/hotvetalleen/til-salgs"
+            target="_blank"
+            style={{
+              display: "inline-block",
+              background: "#FFD500",
+              color: "#111",
+              padding: "18px 36px",
+              borderRadius: "16px",
+              fontWeight: 700,
+              textDecoration: "none",
+              fontSize: "18px",
+            }}
+          >
+            Gå til salgssiden
+          </a>
         </div>
       </section>
     </main>
