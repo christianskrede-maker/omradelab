@@ -347,9 +347,15 @@ export default function HotvetPage() {
             padding: 38px 20px 32px;
           }
 
-          .betonmastLogo {
-            height: 105px;
-          }
+         .betonmastLogo {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  max-height: 110px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 18px;
+}
 
           .region {
             font-size: 24px;
